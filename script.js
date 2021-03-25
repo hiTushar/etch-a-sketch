@@ -3,7 +3,6 @@ const gridBox = document.querySelector('.container');
 document.querySelector('button.clear').addEventListener('click', clear);
 document.querySelector('button.reset').addEventListener('click', reset);
 
-
 function init(lineCount){
     gridBox.style.gridTemplate = `repeat(${lineCount}, 1fr) / repeat(${lineCount}, 1fr)`;
 
@@ -17,11 +16,15 @@ function init(lineCount){
 
 
 function changeColor(event){
-    event.target.style.backgroundColor = 'black'; 
+    // event.target.style.backgroundColor = 'black'; 
+    let red = Math.floor(Math.random() * 256); 
+    let green = Math.floor(Math.random() * 256); 
+    let blue = Math.floor(Math.random() * 256); 
+    event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
 function clear(){
-    Array.from(gridBox.childNodes).forEach(i => i.style.backgroundColor = 'white');
+    Array.from(gridBox.childNodes).forEach(i => i.style.backgroundColor = '');
 }
 
 

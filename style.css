@@ -9,24 +9,27 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: ;
+    align-items: center;
+    background-color: rgb(243, 198, 142);
 }
 
 .container {
     width: 400px;
     height: 400px;
-    outline: solid 1px;
+   
     display: grid;
     /* grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr); */
+    background-color: rgba(110, 90, 65, 0.4);
+    border: solid 5px;
+    border-radius: 6px;
 }
 
 .container div {
-    outline: dashed 1px;
+   
 }
 
 .control-panel {
-    outline: solid 1px;
     width: 400px;
     height: 100px;
     padding: 10px; 
