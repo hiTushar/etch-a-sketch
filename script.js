@@ -1,21 +1,43 @@
-function init(){
-    let gridBox = document.querySelector('.container'); 
-    gridBox.innerHTML = "";
-    for(let i = 0; i < 64; i++){
-        gridBox.innerHTML += `<div id='${i}'></div>`;
-    }
+const gridBox = document.querySelector('.container'); 
 
-    let boxes = document.querySelectorAll('.container div');
-    [...boxes].forEach(box => box.addEventListener('mouseover', (event) => {
-                                                        event.target.style = "background-color: black"
-                                                   }));
-    
-    
-    document.querySelector('button').addEventListener('click', () => {reset()});
+document.querySelector('button.clear').addEventListener('click', clear);
+document.querySelector('button.reset').addEventListener('click', reset);
+
+
+function init(lineCount){
+    gridBox.style.gridTemplate = `repeat(${lineCount}, 1fr) / repeat(${lineCount}, 1fr)`;
+
+    gridBox.innerHTML = "";
+    for(let i = 0; i < lineCount * lineCount; i++){
+        let box = document.createElement('div');
+        box.addEventListener('mouseover', changeColor); 
+        gridBox.appendChild(box); 
+    }
 }
 
-function reset(){
-    let boxes = document.querySelectorAll('.container div');
 
-    [...boxes].forEach(box => {box.style = 'background-color: white;'});
+function changeColor(event){
+    event.target.style.backgroundColor = 'black'; 
+}
+
+function clear(){
+    Array.from(gridBox.childNodes).forEach(i => i.style.backgroundColor = 'white');
+}
+
+
+function reset(){
+    let lineCount = 0;
+    while(true){
+        lineCount = prompt('Enter No. of squares per side: ');
+        if(lineCount !== null){
+            lineCount = parseInt(lineCount.trim()); 
+            if(lineCount < 100 && lineCount > 0 && !isNaN(lineCount)){
+                init(lineCount);
+                break;
+            }
+        }
+        else { // Cancel is clicked
+            break; 
+        }
+    }
 }

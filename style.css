@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: ;
 }
 
 .container {
@@ -17,12 +17,12 @@ body {
     height: 400px;
     outline: solid 1px;
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr); 
+    /* grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr); */
 }
 
 .container div {
-    outline: dashed;
+    outline: dashed 1px;
 }
 
 .control-panel {
@@ -30,6 +30,9 @@ body {
     width: 400px;
     height: 100px;
     padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
@@ -37,12 +40,14 @@ button {
     border-bottom: solid 4px rgb(161, 155, 155);      
     border-radius: 3px;
     padding: 5px 10px;
+    margin: 10px;
     background-color: antiquewhite;
-
+/*
     position: relative;
-    top: calc(50% - 10px); 
-    
-    
+    top: calc(50% - 12px); 
+    left: calc(50% ); 
+    transform: translateX(-50%);
+*/
 }
 button:hover {
     filter: brightness(90%); 
